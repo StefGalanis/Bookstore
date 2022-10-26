@@ -1,13 +1,12 @@
-package com.example.bookstore.customer;
-
-import org.springframework.format.annotation.DateTimeFormat;
+package com.example.bookstore.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "customer")
 public class Customer {
     @Id
     @SequenceGenerator(
@@ -23,6 +22,9 @@ public class Customer {
     private String name;
     private String email;
     private Integer age;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders;
 
 
     public Customer() {
@@ -72,6 +74,7 @@ public class Customer {
     public void setAge(Integer age) {
         this.age = age;
     }
+
 
     @Override
     public String toString() {

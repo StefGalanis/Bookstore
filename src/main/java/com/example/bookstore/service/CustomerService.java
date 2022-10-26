@@ -1,5 +1,7 @@
-package com.example.bookstore.customer;
+package com.example.bookstore.service;
 
+import com.example.bookstore.repository.CustomerRepository;
+import com.example.bookstore.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

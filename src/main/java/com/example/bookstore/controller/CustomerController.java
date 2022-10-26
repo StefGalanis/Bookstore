@@ -1,5 +1,7 @@
-package com.example.bookstore.customer;
+package com.example.bookstore.controller;
 
+import com.example.bookstore.service.CustomerService;
+import com.example.bookstore.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
