@@ -22,10 +22,10 @@
         <tr th:each="orderBook : ${orderBookList}">
             <td th:text="${orderBook.book.title}"></td>
             <td th:text="${orderBook.quantity}"></td>
-<!--            <td>-->
+            <td>
 <!--                <a th:href="@{/showBookUpdateForm/{id}(id=${book.id})}" class="btn btn-info">Update</a>-->
-<!--                <a th:href="@{/deleteBookWithId/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>-->
-<!--            </td>-->
+                <a th:href="@{/deleteOrderBookWithId/{id}(id=${orderBook.id})}" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

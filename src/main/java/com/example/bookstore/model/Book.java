@@ -21,11 +21,21 @@ public class Book {
     private String title;
     private String author;
     private Integer year;
+    @Column(columnDefinition="TEXT")
+    private String description;
 //    private String ISBN;
 //    @OneToMany(mappedBy = "books")
 //    private Set<OrderBook> orderBookSet = new HashSet<>();
 
     public Book() {
+    }
+
+    public Book(Long id, String title, String author, Integer year, String description) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.description = description;
     }
 
     public Book(Long id, String title, String author, Integer year) {
@@ -35,10 +45,24 @@ public class Book {
         this.year = year;
     }
 
+    public Book(String title, String author, Integer year, String description) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.description = description;
+    }
     public Book(String title, String author, Integer year) {
         this.title = title;
         this.author = author;
         this.year = year;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {

@@ -5,11 +5,10 @@ import com.example.bookstore.model.Customer;
 import com.example.bookstore.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class BookController {
@@ -35,8 +34,17 @@ public class BookController {
     }
 
     @PostMapping("/updateBook")
-    public String updateBook(Book book, Model model){
-        bookService.updateBook(book);
+    public String updateBook(Book book){
+        Optional<Book> bookData = Optional.ofNullable(bookService.getBookWithId(book.getId()));
+
+        if (bookData.isPresent()) {
+            Book _book = bookData.get();
+            _book.setTitle(book.getTitle());
+            _book.setDescription(book.getDescription());
+            bookService.updateBook(_book);
+        } else {
+            throw new RuntimeException("Could not update book with id ::" + book.getId());
+        }
         return "redirect:/Books";
     }
 
@@ -44,6 +52,13 @@ public class BookController {
     public String deleteBookWithId(@PathVariable (value = "id") Long id, Model model){
         bookService.deleteBook(id);
         return "redirect:/Books";
+    }
+
+    @GetMapping("showBook/{id}")
+    public String showBookWithId(@PathVariable(name = "id") long id,Model model){
+        Book book = this.bookService.getBookWithId(id);
+        model.addAttribute(book);
+        return "show_book";
     }
 
 

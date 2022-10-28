@@ -34,6 +34,10 @@ public class OrderService {
         return order;
     }
 
+    public void createOrder(Order order){
+        this.orderRepository.save(order);
+    }
+
 //    public List<Order> getOrdersWithCustomerId(Long customer_id){
 //        Optional<Order> optionalOrderList = orderRepository;
 //        List<Order> orderList = null;

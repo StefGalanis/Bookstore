@@ -34,6 +34,12 @@ public class OrderBook {
     public OrderBook() {
     }
 
+    public OrderBook(Order order, Book book) {
+        this.order = order;
+        this.book = book;
+        this.quantity = 1;
+    }
+
     public OrderBook(Order order, Book book, Integer quantity) {
         this.order = order;
         this.book = book;

@@ -32,13 +32,17 @@ public class OrderConfig {
             Book book1 = new Book(
                     "The Lord of the Rings: The Fellowship of the Ring",
                     "J. R. R. Tolkien",
-                    1954
+                    1954,
+                    " Continuing the story begun in The Hobbit, this is the first part of Tolkien's epic masterpiece, The Lord of the Rings, featuring a striking black cover based on Tolkien's own design, the definitive text, and a detailed map of Middle-earth.\n" +
+                            "\n" +
+                            "Sauron, the Dark Lord, has gathered to him all the Rings of Power - the means by which he intends to rule Middle-earth. All he lacks "
             );
 
             Book book2 = new Book(
                     "The Lord of the Rings: The Two Towers",
                     "J. R. R. Tolkien",
-                    1954
+                    1954,
+                    "Continuing the story of The Hobbit, this is the second part of Tolkien's epic masterpiece, The Lord of the Rings, featuring an exclusive cover image from the film, the definitive text, and a detailed map of Middle-earth. Frodo and the Companions of the Ring have been beset by danger during their quest to prevent the Ruling Ring from falling into the hands of the Dark Lord by destroying it in the "
             );
 
             bookRepository.saveAll(List.of(book1,book2));

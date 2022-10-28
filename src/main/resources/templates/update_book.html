@@ -10,7 +10,7 @@
     <h1>Manage Books</h1>
     <hr>
     <h2>Update Book</h2>
-    <form action="#" th:object="${book}" th:action="@{/udpateBook}" th:method="POST">
+    <form action="#" th:object="${book}" th:action="@{/updateBook}" th:method="POST">
 
         <input type="hidden" th:field="*{id}"/>
         <div class="form-group">
@@ -24,6 +24,10 @@
         <div class="form-group">
             <label>Year</label>
             <input th:field="*{year}" type="number" id="year" name="year">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea th:field="*{description}" rows="5" class="form-control" id="description"></textarea>
         </div>
 
         <button type="submit" class="btn btn-info col-2">Update</button>
