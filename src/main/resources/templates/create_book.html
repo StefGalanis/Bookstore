@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Manage Books</h1>
+    <hr>
+    <h2>Book Form</h2>
+    <form action="#" th:object="${book}" th:action="@{/createBook}" th:method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input th:field="*{title}" type="text" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input th:field="*{author}" type="text" class="form-control" id="author">
+        </div>
+        <div class="form-group">
+            <label for="year">Published year</label>
+            <input th:field="*{year}" type="number" id="year" name="year">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea th:field="*{description}" rows="5" class="form-control" id="description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-info col-2">Create</button>
+    </form>
+    <hr>
+    <a th:href="@{/Books}"> Back to Books List </a>
+</div>
+</body>
+</html>

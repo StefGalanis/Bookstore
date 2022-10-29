@@ -1,7 +1,6 @@
 package com.example.bookstore.controller;
 
 import com.example.bookstore.model.Book;
-import com.example.bookstore.model.Customer;
 import com.example.bookstore.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +39,8 @@ public class BookController {
         if (bookData.isPresent()) {
             Book _book = bookData.get();
             _book.setTitle(book.getTitle());
+            _book.setAuthor(book.getAuthor());
+            _book.setYear(book.getYear());
             _book.setDescription(book.getDescription());
             bookService.updateBook(_book);
         } else {
@@ -61,12 +62,17 @@ public class BookController {
         return "show_book";
     }
 
+    @GetMapping("/showCreateBookForm")
+    public String showCreateForm(Model model){
+        Book book = new Book();
+        model.addAttribute("book",book);
+        return "create_book";
+    }
 
-//    @GetMapping("/showNewCustomerForm")
-//    public String showNewCustomerForm(Model model){
-//        Customer customer = new Customer();
-//        model.addAttribute("customer", customer);
-//        return "new_customer";
-//    }
+    @PostMapping("/createBook")
+    public String createBook(Book book){
+        this.bookService.createBook(book);
+        return "redirect:/Books";
+    }
 
 }

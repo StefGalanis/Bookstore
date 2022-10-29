@@ -42,4 +42,8 @@ public class BookService {
         }
         return book;
     }
+
+    public void createBook(Book book){
+        this.bookRepository.save(book);
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-//@RequestMapping(path = "/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -31,8 +30,6 @@ public class CustomerController {
     public String getCustomers(Model model, Customer customer){
         List<Customer> customers = customerService.getCustomers();
         model.addAttribute("customers",customers);
-//        return customerService.getCustomers();
-//        model.addAttribute("something", "this is a message from controller");
         return "customer";
     }
 
