@@ -1,6 +1,9 @@
 package com.example.bookstore.model;
 
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,10 +24,12 @@ public class OrderBook {
     private Long id;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="order_id", nullable=false)
     private Order order;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="book_id", nullable=false)
     private Book book;
 

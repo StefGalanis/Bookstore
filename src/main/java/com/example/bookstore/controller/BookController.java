@@ -1,7 +1,9 @@
 package com.example.bookstore.controller;
 
 import com.example.bookstore.model.Book;
+import com.example.bookstore.model.OrderBook;
 import com.example.bookstore.service.BookService;
+import com.example.bookstore.service.OrderBookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +15,11 @@ import java.util.Optional;
 public class BookController {
 
     private final BookService bookService;
+    private final OrderBookService orderBookService;
 
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, OrderBookService orderBookService) {
         this.bookService = bookService;
+        this.orderBookService = orderBookService;
     }
 
     @GetMapping("/Books")
@@ -51,7 +55,12 @@ public class BookController {
 
     @GetMapping("/deleteBookWithId/{id}")
     public String deleteBookWithId(@PathVariable (value = "id") Long id, Model model){
-        bookService.deleteBook(id);
+//        List<OrderBook> orderBookList = this.orderBookService.getOrderBookWithBookId(id);
+//        for ( OrderBook orderBook : orderBookList ) {
+////            orderBook.setBook(null);
+//            this.orderBookService.deleteOrderBook(orderBook);
+//        }
+        this.bookService.deleteBook(id);
         return "redirect:/Books";
     }
 

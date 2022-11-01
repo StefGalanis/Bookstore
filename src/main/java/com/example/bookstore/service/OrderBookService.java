@@ -47,4 +47,12 @@ public class OrderBookService {
     public void createOrderBook(OrderBook orderBook){
         this.orderBookRepository.save(orderBook);
     }
+
+    public List<OrderBook> getOrderBookWithBookId(Long id){
+        return this.orderBookRepository.getOrderBookByBookId(id);
+    }
+
+    public void saveOrderBook(OrderBook orderBook){
+        this.orderBookRepository.save(orderBook);
+    }
 }

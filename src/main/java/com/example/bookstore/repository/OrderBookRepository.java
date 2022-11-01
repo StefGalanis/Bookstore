@@ -11,4 +11,6 @@ import java.util.List;
 public interface OrderBookRepository extends JpaRepository<OrderBook, Long> {
     @Query(value = "SELECT * FROM order_book WHERE order_id = ?1",nativeQuery = true)
     List<OrderBook> getOrderBookByOrderId(Long id);
+    @Query(value = "SELECT * FROM order_book WHERE book_id = ?1",nativeQuery = true)
+    List<OrderBook> getOrderBookByBookId(Long id);
 }
